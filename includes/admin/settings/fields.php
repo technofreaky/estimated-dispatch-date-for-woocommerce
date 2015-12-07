@@ -69,7 +69,14 @@ $fields['settings_global']['global'][] = array(
 	'default' => 'This product is usually dispatched in [number] working [days].',
 );
 	
-
+$fields['settings_global']['global'][] = array(
+    'id'      =>  EDDWC_DB.'product_average_day_trans',
+    'type'    => 'text',
+    'label'   => __(  'Product Average Days', EDDWC_TXT),
+    'desc'    => __(  'Enter in the singular and plural translation for "day" and "days" seperated by a comma. <code>day,days</code>',EDDWC_TXT),
+    'size '   => 'large',
+	'default' => 'day,days',
+);
 
 
 $fields['settings_global']['global'][] = array(

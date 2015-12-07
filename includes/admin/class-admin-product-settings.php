@@ -10,54 +10,106 @@ if ( ! defined( 'WPINC' ) ) { die; }
 class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Estimated_Dispatch_Date_For_WooCommerce_Admin {
     
 	public function __construct() {
-		add_action('woocommerce_product_options_general_product_data',array($this,'add_est_field'));
+		add_action('woocommerce_product_options_general_product_data',array($this,'add_est_simple_field'));
+		add_action('woocommerce_product_after_variable_attributes',array($this,'add_est_variation_field'),10,10);
+		
 		add_action('woocommerce_process_product_meta_simple',array($this,'save_simple_product_data'));
+		add_action('woocommerce_process_product_meta_variable',array($this,'save_variable_product_data'));
+		add_action('woocommerce_save_product_variation',array($this,'save_variation_product_data'),10,2);
+		
 	}
 	
-	public function add_est_field($post_id){
-		global $post, $thepostid;
-		$thepostid = $post->ID;
-		echo '<div class="options_group show_if_simple hide_if_external hide_if_variable">';
+	public function add_est_variation_field($loop,$variable,$variable_product){
+		$post_ID = $variable_product->ID;
+		$values = eddwc_get_variation($post_ID);
+		
 		$type = eddwc_option('display_type');
 		$field_type = 'number';
-		$fieldClass = '';
-		if($type == 'general_date'){
-			$field_type = 'hidden';
-			$fieldClass = 'hidden';
-			$value = get_post_meta($thepostid,EDDWCP_METAKEY,true);
-			echo '<div class="eddwc_range_container" >';
+		$fieldClass = 'form-row form-row-full';
+		$custom_attributes = '';
+		echo '<div>';
+			if($type == 'general_date'){
+				$field_type = 'hidden';
+				$custom_attributes = array('date-type' => 'range_select');
+			} 
+		
 			woocommerce_wp_text_input( 
 				array( 
-					'id' => 'js_range_est_selector', 
+					'id' => EDDWCP_METAKEY.'_'.$loop, 
 					'label' => __( 'Est. Dispatch Date:', EDDWC_TXT), 
-					'placeholder' => __( 'number', EDDWC_TXT),
-					'value' => $value,
+					'placeholder' => __( 'number', EDDWC_TXT), 
 					'type' => $field_type,  
+					'wrapper_class' => 'form-row form-row-full',
+					'name' => 'est_date_variation_'.$loop,
+					'custom_attributes' => $custom_attributes,
+					'value' => $values,
 				)
-			);			
-			echo '</div>';
-		}
-		woocommerce_wp_text_input( 
-			array( 
-				'id' => EDDWCP_METAKEY, 
-				'label' => __( 'Est. Dispatch Date:', EDDWC_TXT), 
-				'placeholder' => __( 'number', EDDWC_TXT), 
-				'type' => $field_type,  
-				'wrapper_class' => $fieldClass,
-			)
-		);
+			);
+		echo '</div>';
+	}
+	
+	
+	public function add_est_simple_field($post_id){
+		global $post, $thepostid,$product;
+		$thepostid = $post->ID;
+		$product = wc_get_product($thepostid);
+		$get_value = 'eddwc_get_';
+		$get_value .= $product->get_type();
+		echo '<div class="options_group show_if_simple hide_if_external show_if_variable">';
+			$type = eddwc_option('display_type');
+			$field_type = 'number';
+			$fieldClass = '';
+			$custom_attributes = '';
+			$value = $get_value($thepostid);
+
+		
+			if($type == 'general_date'){
+				$field_type = 'hidden';
+				$custom_attributes = array('date-type' => 'range_select');
+			} else {
+				$value = explode(',',$value);
+				if($value[0] > $value[1]){
+					$value = $value[0];
+				} else {
+					$value = $value[1];
+				}
+			}
+		
+		
+		
+			woocommerce_wp_text_input( 
+				array( 
+					'id' => EDDWCP_METAKEY, 
+					'label' => __( 'Est. Dispatch Date:', EDDWC_TXT), 
+					'placeholder' => __( 'number', EDDWC_TXT), 
+					'type' => $field_type,  
+					'wrapper_class' => $fieldClass,
+					'value' => $value,
+					'custom_attributes' => $custom_attributes
+				)
+			);
 		echo '</div>';
 	}
 	
 	public function save_simple_product_data($post_id){
 		if(isset($_POST[EDDWCP_METAKEY])){
-			$estDate = $_POST[EDDWCP_METAKEY];
-			update_post_meta( $post_id, EDDWCP_METAKEY, wc_clean($estDate) );
+			$estDate = $_POST[EDDWCP_METAKEY]; 
+			eddwc_update_simple($post_id,$estDate);
 		}
 	}
 	
+	public function save_variable_product_data($post_id){
+		if(isset($_POST[EDDWCP_METAKEY])){
+			$estDate = $_POST[EDDWCP_METAKEY]; 
+			eddwc_update_variable($post_id,$estDate);
+		}
+	}	
+	
+	public function save_variation_product_data($post_id,$loop_no){
+		if(isset($_POST['est_date_variation_'.$loop_no])){
+			$estDate = $_POST['est_date_variation_'.$loop_no]; 
+			eddwc_update_variation($post_id,$estDate);
+		}
+	}	
 }
-
-
-
 ?>
