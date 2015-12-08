@@ -68,11 +68,13 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
 				$field_type = 'hidden';
 				$custom_attributes = array('date-type' => 'range_select');
 			} else {
-				$value = explode(',',$value);
-				if($value[0] > $value[1]){
-					$value = $value[0];
-				} else {
-					$value = $value[1];
+				if($value != ''){
+					$value = explode(',',$value);
+					if($value[0] > $value[1]){
+						$value = $value[0];
+					} else {
+						$value = $value[1];
+					}
 				}
 			}
 		
