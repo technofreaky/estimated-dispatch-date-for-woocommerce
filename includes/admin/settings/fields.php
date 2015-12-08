@@ -148,10 +148,28 @@ $fields['settings_global']['global'][] = array(
 );
 
 
-$fields['settings_operations']['operations'][] = array(
+$fields['settings_global']['global'][] = array(
     'id'      =>  EDDWC_DB.'operation_days',
     'type'    => 'select',
     'label'   => __( 'Working Days', EDDWC_TXT),
+    'desc'    => __( 'Choose the format that dates should be displayed in.',EDDWC_TXT),
+    'size '   => 'small',
+	'attr'    => array('class' => 'wc-enhanced-select','multiple' => 'multiple','style' => 'width:auto;max-width:35%;'),
+	'options' => array(
+		'mon' => __('Monday',EDDWC_TXT),
+		'tue' => __('Tuesday',EDDWC_TXT),
+		'wed' => __('Wednesday',EDDWC_TXT),
+		'thu' => __('Thursday',EDDWC_TXT),
+		'fri' => __('Friday',EDDWC_TXT),
+		'sat' => __('Saturday',EDDWC_TXT),
+		'sun' => __('Sunday',EDDWC_TXT),
+	)
+);
+
+$fields['settings_holiday']['holiday'][] = array(
+    'id'      =>  EDDWC_DB.'holidays',
+    'type'    => 'eddwc_holiday_listing',
+    //'label'   => __( '', EDDWC_TXT),
     'desc'    => __( 'Choose the format that dates should be displayed in.',EDDWC_TXT),
     'size '   => 'small',
 	'attr'    => array('class' => 'wc-enhanced-select','multiple' => 'multiple','style' => 'width:auto;max-width:35%;'),

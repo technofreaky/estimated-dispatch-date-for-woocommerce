@@ -1,71 +1,190 @@
-.eddwc_range_container .slider-container {
-    display: block;
-    font-size: 12px !important;
-    margin: 8px 0 8px 5px;
+.cuzd-holidays.widefat th,
+.cuzd-holidays.widefat td {
+	text-align: center;
 }
 
-.eddwc_range_container .slider-container .back-bar .pointer-label{
+table.cuzd-holidays.widefat .checkbox {
+	width: 20px;
+}
+
+table.cuzd-holidays.widefat .actions {
+	width: 70px;
+}
+
+.eddwc_btn {
+	padding-top: 3px !important
+}
+
+.eddwc_range_container .slider-container {
+	display: block;
+	font-size: 12px !important;
+	margin: 8px 0 8px 5px;
+}
+
+.eddwc_range_container .slider-container .back-bar .pointer-label {
 	font-size: 12px;
 }
 
-input[data-picker="time"]{
-	width:10%;
+input[data-picker="time"] {
+	width: 10%;
 }
 
 .edd_wc_radio {
- 	color: #999;
- 	font-size: 15px;
- 	position: relative;
- }
- 
- .edd_wc_radio span {
- 	position: relative;
- 	padding-left: 20px;
- }
- 
- .edd_wc_radio span:after {
- 	content: '';
- 	width: 15px;
- 	height: 15px;
- 	border: 3px solid;
- 	position: absolute;
- 	left: 0;
- 	top: 1px;
- 	border-radius: 100%;
- 	-ms-border-radius: 100%;
- 	-moz-border-radius: 100%;
- 	-webkit-border-radius: 100%;
- 	box-sizing: border-box;
- 	-ms-box-sizing: border-box;
- 	-moz-box-sizing: border-box;
- 	-webkit-box-sizing: border-box;
- }
- 
- .edd_wc_radio input[type="radio"] {
- 	cursor: pointer;
- 	position: absolute;
- 	width: 100%;
- 	height: auto;
- 	z-index: 1;
- 	opacity: 0;
- 	filter: alpha(opacity=0);
- 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
- }
- 
- .edd_wc_radio input[type="radio"]:checked + span {
- 	color: #0B8;
- }
- 
- .edd_wc_radio input[type="radio"]:checked + span:before {
- 	content: '';
- 	width: 5px;
- 	height: 5px;
- 	position: absolute;
- 	background: #0B8;
- 	left: 5px;
- 	top: 6px;
- 	border-radius: 100%;
- 	-ms-border-radius: 100%;
- 	-moz-border-radius: 100%;
- 	-webkit-border-radius: 100%;
- }
+	color: #999;
+	font-size: 15px;
+	position: relative;
+}
+
+.edd_wc_radio span {
+	position: relative;
+	padding-left: 20px;
+}
+
+.edd_wc_radio span:after {
+	content: '';
+	width: 15px;
+	height: 15px;
+	border: 3px solid;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	border-radius: 100%;
+	-ms-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.edd_wc_radio input[type="radio"] {
+	cursor: pointer;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	z-index: 1;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+
+.edd_wc_radio input[type="radio"]:checked + span {
+	color: #0B8;
+}
+
+.edd_wc_radio input[type="radio"]:checked + span:before {
+	content: '';
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	background: #0B8;
+	left: 5px;
+	top: 6px;
+	border-radius: 100%;
+	-ms-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.wp-core-ui .button-delete {
+	background: #de1829;
+	border-color: #b01320;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #ed5663, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #ed5663, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-delete:hover,
+.wp-core-ui .button-delete:focus {
+	background: #b91422;
+	border-color: #99111c;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #ea3f4d, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #ea3f4d, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-delete:active {
+	background: #b91422;
+	border-color: #99111c;
+	color: white;
+	-webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+}
+
+.wp-core-ui .button-delete[disabled],
+.wp-core-ui .button-delete:disabled,
+.wp-core-ui .button-delete.button-delete-disabled {
+	color: #d1c7c8 !important;
+	background: #b91422 !important;
+	border-color: #99111c !important;
+	text-shadow: none !important;
+}
+
+.wp-core-ui .button-save {
+	background: #0c6e31;
+	border-color: #07401d;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #14b350, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #14b350, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-save:hover,
+.wp-core-ui .button-save:focus {
+	background: #084921;
+	border-color: #042912;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #119c45, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #119c45, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-save:active {
+	background: #084921;
+	border-color: #042912;
+	color: white;
+	-webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+}
+
+.wp-core-ui .button-save[disabled],
+.wp-core-ui .button-save:disabled,
+.wp-core-ui .button-save.button-save-disabled {
+	color: #c7d1cb !important;
+	background: #084921 !important;
+	border-color: #042912 !important;
+	text-shadow: none !important;
+}
+
+.wp-core-ui .button-edit {
+	background: #303030;
+	border-color: #171717;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #565656, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #565656, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-edit:hover,
+.wp-core-ui .button-edit:focus {
+	background: #1c1c1c;
+	border-color: #0a0a0a;
+	color: white;
+	-webkit-box-shadow: inset 0 1px 0 #4a4a4a, 0 1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 1px 0 #4a4a4a, 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.wp-core-ui .button-edit:active {
+	background: #1c1c1c;
+	border-color: #0a0a0a;
+	color: white;
+	-webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+}
+
+.wp-core-ui .button-edit[disabled],
+.wp-core-ui .button-edit:disabled,
+.wp-core-ui .button-edit.button-edit-disabled {
+	color: #d1c7c7 !important;
+	background: #1c1c1c !important;
+	border-color: #0a0a0a !important;
+	text-shadow: none !important;
+}

@@ -180,6 +180,7 @@ if ( !class_exists( 'Estimated_Dispatch_Date_For_WooCommerce_WP_Settings_Fields'
 		 * @param array   $args
 		 */
 		function callback_extra_field( $args ) {
+			
 			if ( isset( $args['callback'] ) && $args['callback'] ) {
 				if ( isset( $args['page_hook'] ) && $args['page_hook'] )
 					do_action( $args['page_hook'] . '_add_extra_field', $args );

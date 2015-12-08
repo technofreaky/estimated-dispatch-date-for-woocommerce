@@ -632,7 +632,7 @@ if ( !class_exists( 'Estimated_Dispatch_Date_For_WooCommerce_WP_Settings' ) ) {
 
 				foreach ( $forms as $form ) {
 
-					echo '<form method="post" action="options.php">';
+					echo '<form method="post" action="options.php" id="'.$form['id'].'" >';
 					// print hidden section_id fields
 					echo $section_ids;
 

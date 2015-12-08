@@ -165,6 +165,12 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 	
 		
 	private function eddwc_get_dispatch_date($date) { 
+		$eddwc_holiday = eddwc_option('holiday');
+		$eddwc_holidays = array();
+		foreach($eddwc_holiday as $eddwc_hday){
+			$eddwc_holidays[] = $eddwc_hday['date'];
+		}
+		
 		$eddwc_workdays = eddwc_option('operation_days');
 		$cutOff = eddwc_option('day_cutoftime');
 		list($cut_hrs,$cut_min) = explode(':',$cutOff);
@@ -197,10 +203,10 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 			$eddwc_next_date->modify('+1 day');
 			$ndate = strtolower($eddwc_next_date->format('D'));
 			if (in_array($ndate, $eddwc_workdays)) {
-				$i++;
-				//if (in_array($eddwc_next_date->format('d-m-Y'), $eddwc_holidays) == false) {
-				//	$i++;
-				//}
+				//$i++;
+				if (in_array($eddwc_next_date->format('d-m-Y'), $eddwc_holidays) == false) {
+					$i++;
+				}
 			}
 
 		}

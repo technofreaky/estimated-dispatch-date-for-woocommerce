@@ -8,8 +8,7 @@ $section['settings_global'][] = array(
 ); 
 
 
-$section['settings_operations'][] = array(
-	'id'=>'operations',
-	'title'=>__('Operations :',EDDWC_TXT), 
+$section['settings_holiday'][] = array(
+	'id'=>'holiday',
 	'validate_callback' =>array( $this, 'validate_section' )
 );

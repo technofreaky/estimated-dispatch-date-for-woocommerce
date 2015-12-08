@@ -20,8 +20,19 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
         add_action( 'plugins_loaded', array( $this, 'init' ) );
 		add_filter( 'plugin_row_meta', array($this, 'plugin_row_links' ), 10, 2 );
 		add_filter( 'woocommerce_screen_ids',array($this,'set_wc_screen_ids'),99);
+		add_action( 'wp_ajax_save_holiday_dates',array($this, 'my_action_callback') );
 	}
 
+	public function my_action_callback(){
+		//eddwc_holidays
+		$holidays = array();
+		$holidays['edd_wc_holiday'] = isset($_POST['eddwc_holidays']) ? $_POST['eddwc_holidays'] : array();
+		update_option('edd_wc_holiday',$holidays);
+		
+		exit;
+	}
+	
+	
     /**
      * Inits Admin Sttings
      */
@@ -45,13 +56,16 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
 	 * Register the JavaScript for the admin area.
 	 */
 	public function enqueue_scripts() { 
-
 		if(in_array($this->current_screen() , $this->get_screen_ids())) {
 			wp_enqueue_script(EDDWC_SLUG.'_range_js', EDDWC_JS.'jquery-range.js', array('jquery'), EDDWC_V, false ); 
 			wp_enqueue_script(EDDWC_SLUG.'_date_picker', EDDWC_JS.'date-picker.js', array('jquery'), EDDWC_V, false ); 
 			wp_enqueue_script(EDDWC_SLUG.'_core_script', EDDWC_JS.'admin-script.js', array('jquery'), EDDWC_V, false ); 
         }
- 
+		
+		if($this->current_screen() == 'woocommerce_page_edd_wc_settings') {
+			wp_enqueue_script('jquery-ui-datepicker');
+			wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');		
+		}
 	}
     
     /**

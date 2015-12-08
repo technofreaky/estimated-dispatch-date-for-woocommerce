@@ -10,6 +10,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
 class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Estimated_Dispatch_Date_For_WooCommerce_Admin {
     
 	public function __construct() {
+		add_action('edd_wc__add_extra_field',array($this,'add_holiday_fields'));
 		add_action('woocommerce_product_options_general_product_data',array($this,'add_est_simple_field'));
 		add_action('woocommerce_product_after_variable_attributes',array($this,'add_est_variation_field'),10,10);
 		
@@ -90,6 +91,69 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
 			);
 		echo '</div>';
 	}
+	
+	
+	public function add_holiday_fields(){
+		$field = '';
+		$existing_data = eddwc_option('holiday');
+		$field .= '<table data-total-count="0" style="width:80%;margin-top:5px" class="cuzd-holidays widefat" cellspacing="0">';
+			$field .= '<thead>';
+				$field .= '<tr>';
+					//$field .= '<th class="checkbox" ></th>';
+					$field .= '<th class="title">'.__("Holiday Name",EDDWC_TXT).'</th>';
+					$field .= '<th class="date">'.__("Holiday Date",EDDWC_TXT).'</th>';
+					$field .= '<th class="actions">'.__("Actions",EDDWC_TXT).'</th>';
+				$field .= '</tr>';
+			$field .= '</thead>';
+			$field .= '<tbody>';
+		
+				if(! empty($existing_data)){
+					 
+				
+				foreach($existing_data as $dataK => $dataV){
+					$field .= '<tr>';
+						//$field .= '<td><input type="checkbox" /></td> ';
+						$field .= '<td><input value="'.$dataV['name'].'" class="holiday_name_input" name="eddwc_holidays['.$dataK.'][name]" type="text" /></td> ';
+						$field .= '<td><input class="holiday_date_input" data-type="datepicker" name="eddwc_holidays['.$dataK.'][date]" type="text" value="'.$dataV['date'].'" /></td> ';
+						$field .= '<td>
+						<button type="button" class="add eddwc_btn button button-primary" id="add"><span class="dashicons dashicons-plus-alt"></span></button> 
+						<button type="button" class="edit eddwc_btn button button-edit" id="edit"><span class="dashicons dashicons-edit"></span></button> 
+						<button type="button" class="save eddwc_btn button button-save" id="save"><span class="dashicons dashicons-yes"></span></button> 
+						<button type="button" class="delete eddwc_btn button button-delete" id="delete"><span class="dashicons dashicons-trash"></span></button>
+						</td> ';
+					$field .= '</tr>';
+				} 
+				}
+				$field .= '<tr>';
+					//$field .= '<td><input type="checkbox" /></td> ';
+					$field .= '<td><input class="holiday_name_input" name="eddwc_holidays[][name]" type="text" /></td> ';
+					$field .= '<td><input class="holiday_date_input" data-type="datepicker" name="eddwc_holidays[][date]" type="text" /></td> ';
+					$field .= '<td>
+					<button type="button" class="add eddwc_btn button button-primary" id="add"><span class="dashicons dashicons-plus-alt"></span></button> 
+					<button type="button" class="edit eddwc_btn button button-edit" id="edit"><span class="dashicons dashicons-edit"></span></button> 
+					<button type="button" class="save eddwc_btn button button-save" id="save"><span class="dashicons dashicons-yes"></span></button> 
+					<button type="button" class="delete eddwc_btn button button-delete" id="delete"><span class="dashicons dashicons-trash"></span></button>
+					</td> ';
+				$field .= '</tr>';
+		
+				$field .= '<tr class="hidden" id="template_settings">';
+					//$field .= '<td><input type="checkbox" /></td> ';
+					$field .= '<td><input class="holiday_name_input" type="text" /></td> ';
+					$field .= '<td><input class="holiday_date_input" data-type="datepicker" type="text" /></td> ';
+					$field .= '<td>
+					<button type="button" class="add eddwc_btn button button-primary" id="add"><span class="dashicons dashicons-plus-alt"></span></button> <button type="button" class="edit eddwc_btn button button-edit" id="edit"><span class="dashicons dashicons-edit"></span></button> <button type="button" class="save eddwc_btn button button-save" id="save"><span class="dashicons dashicons-yes"></span></button> <button type="button" class="delete eddwc_btn button button-delete" id="delete"><span class="dashicons dashicons-trash"></span></button>
+					</td> ';
+				$field .= '</tr>';
+		
+		
+			$field .= '</tbody>';
+		$field .= '</table>';
+		
+		echo $field;
+	}
+	
+	
+	
 	
 	public function save_simple_product_data($post_id){
 		if(isset($_POST[EDDWCP_METAKEY])){
