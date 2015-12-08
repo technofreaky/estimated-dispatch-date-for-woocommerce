@@ -51,6 +51,7 @@ $fields['settings_global']['global'][] = array(
 
 
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_actual_date basic_hide', 
     'id'      =>  EDDWC_DB.'product_actual_title',
     'type'    => 'text',
     'label'   => __(  'Product Actual Title', EDDWC_TXT),
@@ -61,6 +62,7 @@ $fields['settings_global']['global'][] = array(
 
 
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_average_date basic_hide', 
     'id'      =>  EDDWC_DB.'product_average_title',
     'type'    => 'text',
     'label'   => __(  'Product Average Title', EDDWC_TXT),
@@ -70,6 +72,7 @@ $fields['settings_global']['global'][] = array(
 );
 	
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_average_date basic_hide', 
     'id'      =>  EDDWC_DB.'product_average_day_trans',
     'type'    => 'text',
     'label'   => __(  'Product Average Days', EDDWC_TXT),
@@ -80,6 +83,7 @@ $fields['settings_global']['global'][] = array(
 
 
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_general_date basic_hide', 
     'id'      =>  EDDWC_DB.'product_general_title',
     'type'    => 'text',
     'label'   => __(  'Product General Title', EDDWC_TXT),
@@ -91,6 +95,7 @@ $fields['settings_global']['global'][] = array(
 
  
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_general_date basic_hide', 
     'id'      =>  EDDWC_DB.'product_general_date_settings',
     'type'    => 'multicheckbox',
     'label'   => __( 'General Date Settings', EDDWC_TXT),
@@ -106,6 +111,7 @@ $fields['settings_global']['global'][] = array(
 
 
 $fields['settings_global']['global'][] = array(
+	'class' => 'show_if_general_date basic_hide', 
     'id'      =>  EDDWC_DB.'general_range_title',
     'type'    => 'text',
     'label'   => __(  'General Range Checkout Field', EDDWC_TXT),

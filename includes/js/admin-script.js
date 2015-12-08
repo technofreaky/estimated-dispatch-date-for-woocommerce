@@ -2,6 +2,7 @@
 jQuery(document).ready(function(){
 	change_data_range();
 	setup_datepicker();
+	hideAndShow_Fields();
 	jQuery('#settings_holiday table.form-table  tr > th').eq(0).remove();
 	jQuery('#settings_holiday input#settings_holiday ').removeAttr('type').attr('type','button').val('Save Holidays');
 	jQuery('#settings_holiday input[name="action"]').val('save_holiday_dates');
@@ -40,7 +41,7 @@ jQuery(document).ready(function(){
 		
 	});
 	
-	
+	jQuery('input[name="edd_wc_global[edd_wc_display_type]"]').change(function(){hideAndShow_Fields();})
 	
 	jQuery('#settings_holiday input#settings_holiday ').click(function(){
 		var data = jQuery("form#settings_holiday").serialize();
@@ -71,4 +72,11 @@ function setup_datepicker(){
 		showButtonPanel: true,
 		dateFormat: 'dd-mm-yy',
 	});
+}
+
+function hideAndShow_Fields(){
+	jQuery('tr.basic_hide').hide();
+	var selected = jQuery('input[name="edd_wc_global[edd_wc_display_type]"]:checked').val();
+	jQuery('tr.show_if_'+selected).show();
+
 }
