@@ -12,6 +12,24 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		add_action( 'woocommerce_cart_totals_after_order_total', array( $this, 'eddwc_display_order' ) );
 		add_action( 'woocommerce_review_order_before_shipping' , array( $this, 'eddwc_display_order' ) );
 		add_action( 'woocommerce_checkout_update_order_meta' , array( $this, 'eddwc_add_order_meta' ) , 2 );
+		
+		add_filter( 'woocommerce_get_order_item_totals', array($this, 'eddwc_show_thankYou'),10,2);
+	}
+	
+	public function eddwc_show_thankYou($ids,$order){
+		$ids['eddwc_order']['label'] = esc_attr(eddwc_option('order_page_title'));
+		$ids['eddwc_order']['value'] = $this->get_order_display_date($order->post->ID);
+		return $ids;
+	}
+	
+	public function get_order_display_date($id){
+		$order_date = '';
+		if (get_post_meta($id, '_eddwc_order_range', true ) != ''){
+			$order_date = get_post_meta($id, '_eddwc_order_range', true );
+		} else {
+			$order_date = get_post_meta($id, '_eddwc_order_date', true );
+		}
+		return $order_date;
 	}
 	
 	public function cuzd_enqueue(){
@@ -109,8 +127,12 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 	
 	public function eddwc_product_general_date($days){
 		$eddwc_range = explode(',' , $days);
+		//$eddwc_range = $this->get_static_date($days);
 		$general_options = eddwc_option('product_general_date_settings');
-		if ($eddwc_range[0] == $eddwc_range[1]) {
+		
+		if (isset($eddwc_range[0]) && isset($eddwc_range[1]) && $eddwc_range[0] == $eddwc_range[1]) {
+			$days = $eddwc_range[0];
+		} else if(isset($eddwc_range[0]) && !isset($eddwc_range[1])){
 			$days = $eddwc_range[0];
 		} else {
 			if (isset($general_options['actual_date'])){
@@ -129,10 +151,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 	 * Generates Actual Date
 	 */
 	public function eddwc_product_actual_date($days){
-		$eddwc_range = explode(',' , $days);
-		if($eddwc_range[0] > $eddwc_range[1]){ $eddwc_range = $eddwc_range[0]; } 
-		else { $eddwc_range = $eddwc_range[1]; }
-		
+		$eddwc_range = $this->get_static_date($days);
 		$eddwc_prod_date = $this->eddwc_get_dispatch_date($eddwc_range);
 		$field = eddwc_option('product_actual_title') ;
 		$prod_label = str_replace('[date]', $eddwc_prod_date , $field);
@@ -143,26 +162,37 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 	public function eddwc_product_average_date($days){
 		$eddwc_days = eddwc_option('product_average_day_trans');
 		$eddwc_days = explode(',' , $eddwc_days);
-		$eddwc_range = explode(',' , $days);
-
-		if($eddwc_range[0] > $eddwc_range[1]){
-			$eddwc_range = intval($eddwc_range[0]); 
-		} else { 
-			$eddwc_range = intval($eddwc_range[1]); 
-		}
+		$eddwc_range = $this->get_static_date($days);
+		//$day = $this->get_static_date($days);
 		
 		if ($eddwc_range > 1){
 			$day = $eddwc_days[1];
 		} else {
 			$day = $eddwc_days[0];
-		}
-		
+		}		
 		$field = eddwc_option('product_average_title');
 		$prod_label = str_replace('[number]', $eddwc_range , $field);
 		$prod_label = str_replace('[days]', $day , $prod_label);
 		return $prod_label;
 	}
 	
+	
+	public function get_static_date($date = ''){
+		$eddwc_range = explode(',' , $date);
+		if(count($eddwc_range) > 1){
+			if(isset($eddwc_range[0]) && isset($eddwc_range[1]) &&  ($eddwc_range[0] > $eddwc_range[1]) ){ 
+				$eddwc_range = $eddwc_range[0]; 
+			} else { 
+				$eddwc_range = $eddwc_range[1]; 
+			}			
+		} else {
+			if(isset($eddwc_range[0])){
+				$eddwc_range = $eddwc_range[0]; 
+			}
+		}
+		
+		return $eddwc_range;
+	}
 		
 	private function eddwc_get_dispatch_date($date) { 
 		$eddwc_holiday = eddwc_option('holiday');
@@ -217,6 +247,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 	public function eddwc_display_order(){
 		$where_to_show = eddwc_option('where_to_display');
 		$general_options = eddwc_option('product_general_date_settings');
+		
 		if (isset($general_options['range_date_checkout'])){
 			$cuzd_current_cart = $this->eddwc_cart_max_range();
 		} else {

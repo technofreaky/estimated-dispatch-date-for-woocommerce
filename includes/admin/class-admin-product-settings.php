@@ -17,7 +17,18 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
 		add_action('woocommerce_process_product_meta_simple',array($this,'save_simple_product_data'));
 		add_action('woocommerce_process_product_meta_variable',array($this,'save_variable_product_data'));
 		add_action('woocommerce_save_product_variation',array($this,'save_variation_product_data'),10,2);
-		
+		add_action('woocommerce_admin_order_data_after_order_details',array($this,'add_dates'));
+
+	}
+	
+	public function add_dates($order){
+		echo '<p class="form-field form-field-wide">';
+		$id = $order->id;
+		$est_date = get_post_meta($id,'_eddwc_order_date',true);
+		$title = eddwc_option('order_page_title');
+		echo '<label for="eddwc_order_date"> '.$title.'</label>';
+		echo ' <input type="text" value="'.$est_date.'" id="eddwc_order_date" name="_eddwc_order_date" >';
+		echo '</p>';
 	}
 	
 	public function add_est_variation_field($loop,$variable,$variable_product){
@@ -70,7 +81,9 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
 			} else {
 				if($value != ''){
 					$value = explode(',',$value);
-					if($value[0] > $value[1]){
+					if(isset($value[0]) && isset($value[1]) && $value[0] > $value[1]){
+						$value = $value[0];
+					} else if(isset($value[0]) && ! isset($value[1])) {
 						$value = $value[0];
 					} else {
 						$value = $value[1];

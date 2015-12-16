@@ -55,7 +55,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
     /**
 	 * Register the JavaScript for the admin area.
 	 */
-	public function enqueue_scripts() { 
+	public function enqueue_scripts() {  
 		if(in_array($this->current_screen() , $this->get_screen_ids())) {
 			wp_enqueue_script(EDDWC_SLUG.'_range_js', EDDWC_JS.'jquery-range.js', array('jquery'), EDDWC_V, false ); 
 			wp_enqueue_script(EDDWC_SLUG.'_date_picker', EDDWC_JS.'date-picker.js', array('jquery'), EDDWC_V, false ); 
@@ -85,6 +85,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
         $screen_ids = array();
 		$screen_ids[] = 'woocommerce_page_edd_wc_settings';
 		$screen_ids[] = 'product';
+		$screen_ids[] = 'shop_order';
         return $screen_ids;
     }
     

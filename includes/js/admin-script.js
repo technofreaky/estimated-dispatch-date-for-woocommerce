@@ -3,6 +3,9 @@ jQuery(document).ready(function(){
 	change_data_range();
 	setup_datepicker();
 	hideAndShow_Fields();
+	jQuery('input#eddwc_order_date').datepicker({
+		dateFormat:'dd/mm/yy',
+	});
 	jQuery('#settings_holiday table.form-table  tr > th').eq(0).remove();
 	jQuery('#settings_holiday input#settings_holiday ').removeAttr('type').attr('type','button').val('Save Holidays');
 	jQuery('#settings_holiday input[name="action"]').val('save_holiday_dates');
