@@ -2,7 +2,7 @@
 Contributors: varunms, arnisarbidans
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/
-Tags: WooCommerce
+Tags: WooCommerce,dispatch date,date,wc product dispatch, product dispatch date,product dispatch, product shipping,shipping date,woocommerce shipping
 Donate link: 
 Requires at least: 3.0
 Tested up to: 4.5

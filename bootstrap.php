@@ -29,7 +29,7 @@ class Estimated_Dispatch_Date_For_WooCommerce {
 		$this->set_vars();
         $this->load_required_files();
         $this->init_class();
-        add_action( 'init', array( $this, 'init' )); 
+		$this->init();
     }
     
     /**
@@ -94,7 +94,7 @@ class Estimated_Dispatch_Date_For_WooCommerce {
      * Set Plugin Text Domain
      */
     public function after_plugins_loaded(){
-        load_plugin_textdomain(PLUGIN_TEXT_DOMAIN, false, EDDWC_LANGUAGE_PATH );
+        load_plugin_textdomain(EDDWC_TXT, false, EDDWC_LANGUAGE_PATH );
     }
     
     /**
@@ -115,22 +115,16 @@ class Estimated_Dispatch_Date_For_WooCommerce {
         $this->define('EDDWC_SLUG', 'estimated-dispatch-date-woocommerce'); # Plugin Slug
         $this->define('EDDWC_TXT',  'estimated-dispatch-date-woocommerce'); #plugin lang Domain
 		$this->define('EDDWC_DB', 'edd_wc_');
-		
 		$this->define('EDDWC_V',$this->version); # Plugin Version
-		
 		$this->define('EDDWC_PATH',plugin_dir_path( __FILE__ ).'/'); # Plugin DIR
 		$this->define('EDDWC_LANGUAGE_PATH',EDDWC_PATH.'languages/'); # Plugin Language Folder
 		$this->define('EDDWC_INC',EDDWC_PATH.'includes/'); # Plugin INC Folder
 		$this->define('EDDWC_ADMIN',EDDWC_INC.'admin/'); # Plugin Admin Folder
 		$this->define('EDDWC_SETTINGS',EDDWC_INC.'admin/settings/'); # Plugin Settings Folder
-		
 		$this->define('EDDWC_URL',plugins_url('', __FILE__ ).'/');  # Plugin URL
 		$this->define('EDDWC_CSS',EDDWC_URL.'includes/css/'); # Plugin CSS URL
 		$this->define('EDDWC_IMG',EDDWC_URL.'includes/img/'); # Plugin IMG URL
 		$this->define('EDDWC_JS',EDDWC_URL.'includes/js/'); # Plugin JS URL
-		
-        $this->define('EDDWC_FILE',plugin_basename( __FILE__ )); # Current File
-
 		$this->define('EDDWCP_METAKEY','_est_dispatch_date');
     }
 	

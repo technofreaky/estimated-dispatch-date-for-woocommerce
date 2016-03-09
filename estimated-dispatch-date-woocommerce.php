@@ -15,8 +15,10 @@
 
 if ( ! defined( 'WPINC' ) ) { die; }
  
+define('EDDWC_FILE',plugin_basename( __FILE__ )); # Current File
 
 require_once(plugin_dir_path(__FILE__).'bootstrap.php');
+require_once(plugin_dir_path(__FILE__).'includes/class-welcome-page.php');
 require_once(plugin_dir_path(__FILE__).'includes/plugin-functions.php');
 require_once(plugin_dir_path(__FILE__).'includes/class-dependencies.php');
 
@@ -26,8 +28,11 @@ if(Estimated_Dispatch_Date_For_WooCommerce_Dependencies()){
 		function EDDWC(){
 			return Estimated_Dispatch_Date_For_WooCommerce::get_instance();
 		}
+		
+		
 	}
 	EDDWC();
+	new estimated_dispatch_date_woocommerce_welcome_page;
 }
 
 ?>
