@@ -11,7 +11,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
     
 	public function __construct() {
 		add_action('edd_wc__add_extra_field',array($this,'add_holiday_fields'));
-		add_action('woocommerce_product_options_general_product_data',array($this,'add_est_simple_field'));
+		add_action('woocommerce_product_options_inventory_product_data',array($this,'add_est_simple_field'));
 		add_action('woocommerce_product_after_variable_attributes',array($this,'add_est_variation_field'),10,10);
 		
 		add_action('woocommerce_process_product_meta_simple',array($this,'save_simple_product_data'));

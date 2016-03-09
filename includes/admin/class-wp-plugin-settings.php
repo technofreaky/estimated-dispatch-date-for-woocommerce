@@ -110,7 +110,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Options {
 		echo '<div class="wrap wc_qd_settings">';
 		settings_errors();
 		$this->settings->render_header();
-		echo $this->settings->debug;
+		//echo $this->settings->debug;
 		$this->settings->render_form();
 		echo '</div>';
 	}

@@ -1,14 +1,14 @@
-# Copyright (C) 2015 Estimated Dispatch Date For WooCommerce
+# Copyright (C) 2016 Estimated Dispatch Date For WooCommerce
 # This file is distributed under the same license as the Estimated Dispatch Date For WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Estimated Dispatch Date For WooCommerce 0.1\n"
+"Project-Id-Version: Estimated Dispatch Date For WooCommerce 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/estimated-dispatch-date-for-woocommerce\n"
-"POT-Creation-Date: 2015-12-16 10:09:12+00:00\n"
+"POT-Creation-Date: 2016-03-09 12:22:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -56,34 +56,6 @@ msgstr ""
 
 #: includes/admin/class-admin-product-settings.php:120
 msgid "Actions"
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:21
-msgid "Integration Demo"
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:22
-msgid "An integration demo to show you how easy it is to extend WooCommerce."
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:43
-msgid "API Key"
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:45
-msgid "Enter with your API Key. You can find this in \"User Profile\" drop-down (top right corner) > API Keys."
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:50
-msgid "Debug Log"
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:52
-msgid "Enable logging"
-msgstr ""
-
-#: includes/admin/class-settings-intergation.php:54
-msgid "Log events such as API requests"
 msgstr ""
 
 #: includes/admin/class-wp-plugin-settings.php:30
@@ -272,11 +244,11 @@ msgid "Estimated Dispatch Date For WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://wordpress.org/plugins/estimated-dispatch-date-for-woocommerce/"
+msgid "https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Sample Plugin For WooCommerce"
+msgid "CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS"
 msgstr ""
 
 #. Author of the plugin/theme

@@ -3,7 +3,7 @@
 if ( ! defined( 'WPINC' ) ) { die; }
  
 class Estimated_Dispatch_Date_For_WooCommerce {
-	public $version = '0.1';
+	public $version = '1.0';
 	public $plugin_vars = array();
 	
 	protected static $_instance = null; # Required Plugin Class Instance
@@ -112,8 +112,8 @@ class Estimated_Dispatch_Date_For_WooCommerce {
      */
     private function define_constant(){
         $this->define('EDDWC_NAME', 'Estimated Dispatch Date For WooCommerce'); # Plugin Name
-        $this->define('EDDWC_SLUG', 'estimated-dispatch-date-for-woocommerce'); # Plugin Slug
-        $this->define('EDDWC_TXT',  'estimated-dispatch-date-for-woocommerce'); #plugin lang Domain
+        $this->define('EDDWC_SLUG', 'estimated-dispatch-date-woocommerce'); # Plugin Slug
+        $this->define('EDDWC_TXT',  'estimated-dispatch-date-woocommerce'); #plugin lang Domain
 		$this->define('EDDWC_DB', 'edd_wc_');
 		
 		$this->define('EDDWC_V',$this->version); # Plugin Version

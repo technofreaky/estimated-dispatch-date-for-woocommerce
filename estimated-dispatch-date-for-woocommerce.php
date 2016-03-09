@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name:       Estimated Dispatch Date For WooCommerce
- * Plugin URI:        https://wordpress.org/plugins/estimated-dispatch-date-for-woocommerce/
- * Description:       Sample Plugin For WooCommerce
- * Version:           0.1
+ * Plugin URI:        https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/
+ * Description:       CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS
+ * Version:           1.0
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
- * Text Domain:       estimated-dispatch-date-for-woocommerce
+ * Text Domain:       estimated-dispatch-date-woocommerce
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt 
- * GitHub Plugin URI: @TODO
+ * GitHub Plugin URI: https://github.com/technofreaky/estimated-dispatch-date-for-woocommerce
  */
 
 if ( ! defined( 'WPINC' ) ) { die; }

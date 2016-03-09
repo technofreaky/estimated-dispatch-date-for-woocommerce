@@ -1,7 +1,7 @@
 === Estimated Dispatch Date For WooCommerce ===
 Contributors: varunms
 Author URI: http://varunsridharan.in/
-Plugin URL: https://wordpress.org/plugins/estimated-dispatch-date-for-woocommerce/
+Plugin URL: https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/
 Tags: WooCommerce
 Donate link: 
 Requires at least: 3.0
@@ -12,12 +12,36 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
-A Simple Plugin Boiler Plate for woocommerce 
+CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS
 
 == Description ==
-A Simple Plugin Boiler Plate for woocommerce 
+This plugin allows you to set, in days, how long a WooCommerce product takes before it is ready for disptach. It retrieves the estimated date for dispatch using the highest number in the order.
+
+= PRODUCT SUPPORT =
+* Simple and Variable Product
+* Customise Date Format
+
+= PAGE SETTINGS =
+* Display on Product, Email & Order Pages
+* Adjust Date on View Order setting panel
+
+= ADMIN SETTINGS =
+* Set cut-off time for next day processing
+* Set Working Days
+* Set Holidays 
 
 == Screenshots ==
+1. Settings Menu
+2. Plugin Settings
+3. Holiday Settings
+4. Simple Product
+5. Variable Product
+6. Single Product Page
+7. Cart View
+8. Checkout View
+9. Custom Order View
+10. Custom Order View
+11. Admin Order Edit View
  
 == Upgrade Notice ==
 

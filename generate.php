@@ -17,7 +17,7 @@ if(isset($_REQUEST['change'])){
 		$file = file_get_contents($f);
 		$file = str_replace('WooCommerce_Plugin_Boiler_Plate', 'Estimated_Dispatch_Date_For_WooCommerce', $file);
 		$file = str_replace('WooCommerce Plugin Boiler Plate', 'Estimated Dispatch Date For WooCommerce', $file);
-		$file = str_replace('woocommerce-plugin-boiler-plate', 'estimated-dispatch-date-for-woocommerce', $file);
+		$file = str_replace('woocommerce-plugin-boiler-plate', 'estimated-dispatch-date-woocommerce', $file);
 		$file = str_replace('PLUGIN_NAME', 'EDDWC_NAME', $file);
 		$file = str_replace('PLUGIN_SLUG', 'EDDWC_SLUG', $file);
 		$file = str_replace('PLUGIN_TXT', 'EDDWC_TXT', $file);
