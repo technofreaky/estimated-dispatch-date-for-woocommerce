@@ -1,0 +1,260 @@
+# Copyright (C) 2016 Estimated Dispatch Date For WooCommerce
+# This file is distributed under the same license as the Estimated Dispatch Date For WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Estimated Dispatch Date For WooCommerce 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/estimated-dispatch-date-woocommerce\n"
+"POT-Creation-Date: 2016-03-09 14:34:34+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/admin/class-admin-init.php:107
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:108
+msgid "F.A.Q"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:109
+msgid "View On Github"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:110
+msgid "Report Issue"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:111
+msgid "Donate"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:112
+msgid "Contact Author"
+msgstr ""
+
+#: includes/admin/class-admin-product-settings.php:51
+#: includes/admin/class-admin-product-settings.php:99
+msgid "Est. Dispatch Date:"
+msgstr ""
+
+#: includes/admin/class-admin-product-settings.php:52
+#: includes/admin/class-admin-product-settings.php:100
+msgid "number"
+msgstr ""
+
+#: includes/admin/class-admin-product-settings.php:118
+msgid "Holiday Name"
+msgstr ""
+
+#: includes/admin/class-admin-product-settings.php:119
+msgid "Holiday Date"
+msgstr ""
+
+#: includes/admin/class-admin-product-settings.php:120
+msgid "Actions"
+msgstr ""
+
+#: includes/admin/class-wp-plugin-settings.php:30
+#: includes/admin/class-wp-plugin-settings.php:31
+msgid "Estimated Dispatch Date"
+msgstr ""
+
+#: includes/admin/settings/fields.php:8
+msgid "Display"
+msgstr ""
+
+#: includes/admin/settings/fields.php:9
+msgid "Where to Display"
+msgstr ""
+
+#: includes/admin/settings/fields.php:12
+msgid "Product Page"
+msgstr ""
+
+#: includes/admin/settings/fields.php:13
+msgid "Order Pages"
+msgstr ""
+
+#: includes/admin/settings/fields.php:20
+msgid "Order Page Title"
+msgstr ""
+
+#: includes/admin/settings/fields.php:21
+msgid "This field is displayed on all order pages and emails."
+msgstr ""
+
+#: includes/admin/settings/fields.php:30
+msgid "Product Page Title"
+msgstr ""
+
+#: includes/admin/settings/fields.php:31
+msgid "Enter your custom title for the product page."
+msgstr ""
+
+#: includes/admin/settings/fields.php:39
+msgid "Product Display Type"
+msgstr ""
+
+#: includes/admin/settings/fields.php:40
+msgid "Select which type of format the product page is displayed in."
+msgstr ""
+
+#: includes/admin/settings/fields.php:44
+msgid "Actual Date"
+msgstr ""
+
+#: includes/admin/settings/fields.php:45
+msgid "Average Date"
+msgstr ""
+
+#: includes/admin/settings/fields.php:46
+msgid "General Date"
+msgstr ""
+
+#: includes/admin/settings/fields.php:57
+msgid "Product Actual Title"
+msgstr ""
+
+#: includes/admin/settings/fields.php:58
+msgid "Enter your custom text for the product page, using the variable delimiter <code> [date] </code>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:68
+msgid "Product Average Title"
+msgstr ""
+
+#: includes/admin/settings/fields.php:69
+msgid "Enter your custom text for the product page, using the variable delimiters <code>[number]</code> & <code>[days]</code>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:78
+msgid "Product Average Days"
+msgstr ""
+
+#: includes/admin/settings/fields.php:79
+msgid "Enter in the singular and plural translation for \"day\" and \"days\" seperated by a comma. <code>day,days</code>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:89
+msgid "Product General Title"
+msgstr ""
+
+#: includes/admin/settings/fields.php:90
+msgid "Enter your custom text for the product page, using the variable delimiter <code>[range]</code>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:101
+msgid "General Date Settings"
+msgstr ""
+
+#: includes/admin/settings/fields.php:106
+msgid "General Actual Date  <small><i>  [Use the actual dates in range e.g. <code>01/12/2015 - 05/12/2015 </code>]</i> </small>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:107
+msgid "General Range Date Checkout <small> <i> [Use the range dates on cart, checkout and email pages]</i> </small>"
+msgstr ""
+
+#: includes/admin/settings/fields.php:117
+msgid "General Range Checkout Field"
+msgstr ""
+
+#: includes/admin/settings/fields.php:118
+msgid "Append the date range with the field in cart, checkout and email pages."
+msgstr ""
+
+#: includes/admin/settings/fields.php:127
+msgid "Day Cut-off Time"
+msgstr ""
+
+#: includes/admin/settings/fields.php:128
+msgid "Orders placed after this time will be processed the following day."
+msgstr ""
+
+#: includes/admin/settings/fields.php:137
+msgid "Date Display"
+msgstr ""
+
+#: includes/admin/settings/fields.php:138
+#: includes/admin/settings/fields.php:161
+#: includes/admin/settings/fields.php:179
+msgid "Choose the format that dates should be displayed in."
+msgstr ""
+
+#: includes/admin/settings/fields.php:160
+msgid "Working Days"
+msgstr ""
+
+#: includes/admin/settings/fields.php:165
+#: includes/admin/settings/fields.php:183
+msgid "Monday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:166
+#: includes/admin/settings/fields.php:184
+msgid "Tuesday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:167
+#: includes/admin/settings/fields.php:185
+msgid "Wednesday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:168
+#: includes/admin/settings/fields.php:186
+msgid "Thursday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:169
+#: includes/admin/settings/fields.php:187
+msgid "Friday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:170
+#: includes/admin/settings/fields.php:188
+msgid "Saturday"
+msgstr ""
+
+#: includes/admin/settings/fields.php:171
+#: includes/admin/settings/fields.php:189
+msgid "Sunday"
+msgstr ""
+
+#: includes/admin/settings/pages.php:3
+msgid "Global"
+msgstr ""
+
+#: includes/admin/settings/pages.php:4
+msgid "Operations"
+msgstr ""
+
+#: includes/admin/settings/section.php:6
+msgid "General :"
+msgstr ""
+
+#: includes/admin/settings/validate-general.php:5
+msgid "Error: Please Select Atlest 1 Payment Gateway."
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "Estimated Dispatch Date For WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Varun Sridharan"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://varunsridharan.in"
+msgstr ""

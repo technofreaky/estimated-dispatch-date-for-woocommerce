@@ -24,11 +24,9 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
 	}
 
 	public function my_action_callback(){
-		//eddwc_holidays
 		$holidays = array();
 		$holidays['edd_wc_holiday'] = isset($_POST['eddwc_holidays']) ? $_POST['eddwc_holidays'] : array();
 		update_option('edd_wc_holiday',$holidays);
-		
 		exit;
 	}
 	
@@ -105,11 +103,12 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin extends Estimated_Dispatch_D
 	 */
 	public function plugin_row_links( $plugin_meta, $plugin_file ) {
 		if ( EDDWC_FILE == $plugin_file ) {
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('Settings',EDDWC_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('F.A.Q',EDDWC_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('View On Github',EDDWC_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('Report Issue',EDDWC_TXT) );
-            $plugin_meta[] = sprintf('&hearts; <a href="%s">%s</a>', '#', $this->__('Donate',EDDWC_TXT) );
+			$settings_url = admin_url('admin.php?page=edd_wc_settings');
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', $settings_url, __('Settings',EDDWC_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/faq/', __('F.A.Q',EDDWC_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://github.com/technofreaky/estimated-dispatch-date-woocommerce/', __('View On Github',EDDWC_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://github.com/technofreaky/estimated-dispatch-date-woocommerce/issues/', __('Report Issue',EDDWC_TXT) );
+            $plugin_meta[] = sprintf('&hearts; <a href="%s">%s</a>', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=75TP8MABWJNSG', $this->__('Donate',EDDWC_TXT) );
             $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'http://varunsridharan.in/plugin-support/', __('Contact Author',EDDWC_TXT) );
 		}
 		return $plugin_meta;

@@ -6,13 +6,13 @@
 if ( ! defined( 'WPINC' ) ) { die; }
 
 class Estimated_Dispatch_Date_For_WooCommerce_Functions {
+	
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array($this,'cuzd_enqueue') );
 		add_action( 'woocommerce_before_add_to_cart_button', array( $this, 'add_est_date' ) ,30,2 );
 		add_action( 'woocommerce_cart_totals_after_order_total', array( $this, 'eddwc_display_order' ) );
 		add_action( 'woocommerce_review_order_before_shipping' , array( $this, 'eddwc_display_order' ) );
 		add_action( 'woocommerce_checkout_update_order_meta' , array( $this, 'eddwc_add_order_meta' ) , 2 );
-		
 		add_filter( 'woocommerce_get_order_item_totals', array($this, 'eddwc_show_thankYou'),10,2);
 	}
 	
@@ -52,7 +52,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		$this->var_type = 'cuzd-dispatch-date-v';
 		$this->sim_type = 'cuzd-dispatch-date-s';
 		
-		if ($type == 'general'){
+		if ($type == 'general_date'){
 			$this->var_type = 'cuzd-dispatch-general-v';
 			$this->sim_type = 'cuzd-dispatch-general-s';
 		}
@@ -85,8 +85,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		$return .= '</div>';
 		return $return;
 	}
-	
-	
+
 	public function get_est_variable_product($id,$type,$function_call){
 		global $post , $product;
 		$return = '';
@@ -94,9 +93,9 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		
 		$var_array = $this->get_est_variation_product($id,$type,$function_call);
 		
-		if($type == 'general'){ $cuzd_prod_field = eddwc_option('product_general_title'); }
-		if($type = 'actual') {$cuzd_prod_field = eddwc_option('product_actual_title'); }
-		if($type = 'average') {$cuzd_prod_field = eddwc_option('product_average_title'); }
+		if($type == 'general_date'){ $cuzd_prod_field = eddwc_option('product_general_title'); }
+		if($type == 'actual_date') {$cuzd_prod_field = eddwc_option('product_actual_title'); }
+		if($type == 'average_date') {$cuzd_prod_field = eddwc_option('product_average_title'); }
 		
 		$return .= '<div id="'.$this->var_type.'" style="display:none">';
 			$return .= '<h3 class="cuzd-title">'.esc_attr(eddwc_option('product_page_title')).'</h3>';
@@ -122,9 +121,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		} 
 		return $var_array;
 	}
-	
-	
-	
+
 	public function eddwc_product_general_date($days){
 		$eddwc_range = explode(',' , $days);
 		//$eddwc_range = $this->get_static_date($days);
@@ -136,13 +133,14 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 			$days = $eddwc_range[0];
 		} else {
 			if (isset($general_options['actual_date'])){
-				$days = $this->eddwc_get_dispatch_date($eddwc_range[0]).' - '.$this->eddwc_get_dispatch_date($eddwc_range[1]);
+				$days = $this->eddwc_get_dispatch_date($eddwc_range[0]).','.$this->eddwc_get_dispatch_date($eddwc_range[1]);
 			} else {
-				$days = $eddwc_range[0].' - '.$eddwc_range[1];								
+				$days = $eddwc_range[0].','.$eddwc_range[1];								
 			}
 		}
 
 		$eddwc_prod_field = eddwc_option('product_general_title');
+		
 		$prod_label = str_replace('[range]', $days, $eddwc_prod_field);	
 		return $prod_label;
 	}
@@ -157,7 +155,6 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		$prod_label = str_replace('[date]', $eddwc_prod_date , $field);
 		return $prod_label;
 	}
-
 	
 	public function eddwc_product_average_date($days){
 		$eddwc_days = eddwc_option('product_average_day_trans');
@@ -175,7 +172,6 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		$prod_label = str_replace('[days]', $day , $prod_label);
 		return $prod_label;
 	}
-	
 	
 	public function get_static_date($date = ''){
 		$eddwc_range = explode(',' , $date);
@@ -242,8 +238,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		}
 		return $eddwc_next_date->format(eddwc_option('date_display_format'));
 	}	
-	
-	
+
 	public function eddwc_display_order(){
 		$where_to_show = eddwc_option('where_to_display');
 		$general_options = eddwc_option('product_general_date_settings');
@@ -261,7 +256,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		}
 	}
 	
-	function eddwc_cart_max_range(){
+	public function eddwc_cart_max_range(){
 		global $woocommerce;
 		$items = $woocommerce->cart->get_cart();
 		$cuzd_range_date = '';
@@ -296,7 +291,6 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 
 		return $cuzd_range_date;
 	} 
-
 	
 	public function eddwc_add_order_meta($order_id){
 		$general_options = eddwc_option('product_general_date_settings');
@@ -306,9 +300,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		update_post_meta( $order_id, '_eddwc_order_date', $this->eddwc_get_dispatch_date($this->eddwc_cart_max_date()));
 		update_post_meta( $order_id, '_eddwc_order_format', eddwc_option('date_display_format'));
 	}	
-	
-	
-		
+
 	public function eddwc_cart_max_date(){
 		global $woocommerce;
 		$cuzd_max_date = 0;
@@ -341,6 +333,4 @@ class Estimated_Dispatch_Date_For_WooCommerce_Functions {
 		if(!empty($count)){ return $count;}
 		return false;	
 	}
-	
-	
 }

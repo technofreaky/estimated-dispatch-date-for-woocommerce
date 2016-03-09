@@ -118,8 +118,8 @@ class Estimated_Dispatch_Date_For_WooCommerce {
 		
 		$this->define('EDDWC_V',$this->version); # Plugin Version
 		
-		$this->define('EDDWC_PATH',plugin_dir_path( __FILE__ )); # Plugin DIR
-		$this->define('EDDWC_LANGUAGE_PATH',EDDWC_PATH.'languages'); # Plugin Language Folder
+		$this->define('EDDWC_PATH',plugin_dir_path( __FILE__ ).'/'); # Plugin DIR
+		$this->define('EDDWC_LANGUAGE_PATH',EDDWC_PATH.'languages/'); # Plugin Language Folder
 		$this->define('EDDWC_INC',EDDWC_PATH.'includes/'); # Plugin INC Folder
 		$this->define('EDDWC_ADMIN',EDDWC_INC.'admin/'); # Plugin Admin Folder
 		$this->define('EDDWC_SETTINGS',EDDWC_INC.'admin/settings/'); # Plugin Settings Folder
