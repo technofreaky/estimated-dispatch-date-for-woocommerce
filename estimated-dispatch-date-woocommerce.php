@@ -3,7 +3,7 @@
  * Plugin Name:       Estimated Dispatch Date For WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/estimated-dispatch-date-woocommerce/
  * Description:       CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS
- * Version:           1.0
+ * Version:           1.1
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       estimated-dispatch-date-woocommerce

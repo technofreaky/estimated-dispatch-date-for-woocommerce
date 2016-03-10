@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.5
 WC requires at least: 1.0
 WC tested up to: 2.6
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -16,6 +16,8 @@ CALCULATE ESTIMATED DISPATCH DATE FOR PRODUCTS & ORDERS
 
 == Description ==
 This plugin allows you to set, in days, how long a WooCommerce product takes before it is ready for disptach. It retrieves the estimated date for dispatch using the highest number in the order.
+
+[youtube https://www.youtube.com/watch?v=sLT2j7dr2Wg]
 
 = SETTINGS =
 * General Plugin Settings Can be found in <code> WooCommerce Menu => Estimated Dispatch Date </code>
@@ -81,6 +83,10 @@ The manual installation method involves downloading our plugin and uploading it 
 2. Activate the plugin through the 'Plugins' menu in WordPress
  
 
-== Changelog == 
-= 1.0 =
+== Changelog ==
+= 1.1 [10-03-2016] =
+* Recoded Frontend display
+* Minor Bugfix
+
+= 1.0 [09-03-2016] =
 * Base Version

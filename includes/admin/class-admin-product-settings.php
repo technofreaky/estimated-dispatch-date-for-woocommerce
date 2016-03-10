@@ -111,7 +111,7 @@ class Estimated_Dispatch_Date_For_WooCommerce_Admin_Product_Settings extends Est
 	public function add_holiday_fields(){
 		$field = '';
 		$existing_data = eddwc_option('holiday');
-		$field .= '<table data-total-count="0" style="width:80%;margin-top:5px" class="cuzd-holidays widefat" cellspacing="0">';
+		$field .= '<table data-total-count="0" style="width:80%;margin-top:5px" class="eddwc-holidays widefat" cellspacing="0">';
 			$field .= '<thead>';
 				$field .= '<tr>';
 					//$field .= '<th class="checkbox" ></th>';
